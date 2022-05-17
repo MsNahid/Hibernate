@@ -22,9 +22,9 @@ public class CreateApp {
 			Session session = sessionFactory.openSession();
 			
 			Song song1 = new Song();
-			song1.setSongId(2);
-			song1.setSongName("Senorita");
-			song1.setSongArtist("Shawan Mendes");
+//			song1.setSongId(2);
+			song1.setSongName("abc");
+			song1.setSongArtist("akbor");
 			
 			session.beginTransaction();
 			session.save(song1);
