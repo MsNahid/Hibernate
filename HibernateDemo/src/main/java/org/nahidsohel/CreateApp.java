@@ -21,7 +21,7 @@ public class CreateApp
         Session session = sessionFactory.openSession();
 
         Song song1 = new Song();
-        song1.setSongId(10);
+        song1.setSongId(100);
         song1.setSongName("Fire aso na");
         song1.setSongArtist("Habib");
 

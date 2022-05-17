@@ -18,7 +18,7 @@ public class DeleteApp {
 
         Session session = sessionFactory.openSession();
 
-        Song song = session.get(Song.class, 10);
+        Song song = session.get(Song.class,13);
         System.out.println(song);
 
         session.beginTransaction();
