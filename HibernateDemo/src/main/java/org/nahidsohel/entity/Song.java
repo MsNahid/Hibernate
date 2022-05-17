@@ -25,4 +25,5 @@ public class Song {
 
     @Column(name = "song_artist")
     private String songArtist;
+    
 }
