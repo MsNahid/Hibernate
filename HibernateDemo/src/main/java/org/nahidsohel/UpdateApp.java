@@ -5,7 +5,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.nahidsohel.entity.Song;
 
-public class ReadApp {
+public class UpdateApp {
 
     public static void main( String[] args ){
 
@@ -17,8 +17,13 @@ public class ReadApp {
         SessionFactory sessionFactory = configuration.buildSessionFactory();
 
         Session session = sessionFactory.openSession();
+
+        Song song = session.get(Song.class, 5);
+        song.setSongArtist("Dua Lipa");
+        song.setSongName("Be the one");
+
         session.beginTransaction();
-        Song song = session.get(Song.class, 50);
+        session.update(song);
         session.getTransaction().commit();
 
         System.out.println(song);

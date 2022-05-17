@@ -5,7 +5,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.nahidsohel.entity.Song;
 
-public class ReadApp {
+public class DeleteApp {
 
     public static void main( String[] args ){
 
@@ -17,11 +17,13 @@ public class ReadApp {
         SessionFactory sessionFactory = configuration.buildSessionFactory();
 
         Session session = sessionFactory.openSession();
-        session.beginTransaction();
-        Song song = session.get(Song.class, 50);
-        session.getTransaction().commit();
 
+        Song song = session.get(Song.class, 10);
         System.out.println(song);
+
+        session.beginTransaction();
+        session.delete(song);
+        session.getTransaction().commit();
 
         session.close();
     }
