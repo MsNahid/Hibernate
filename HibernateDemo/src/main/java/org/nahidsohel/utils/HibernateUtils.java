@@ -16,7 +16,7 @@ public class HibernateUtils {
 			configuration.configure("hibernate.cfg.xml");
 			configuration.addAnnotatedClass(Song.class);
 			
-			// Create SessionFactory
+			// Create SessionFactory goo
 			sessionFactory = configuration.buildSessionFactory();
 		}
 		
