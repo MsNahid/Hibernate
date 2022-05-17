@@ -7,28 +7,28 @@ import org.nahidsohel.entity.Song;
 import org.nahidsohel.utils.HibernateUtils;
 
 public class UpdateApp {
-
-    public static void main( String[] args ){
+	
+	public static void main(String[] args) {
 
 //        Configuration configuration = new Configuration();
 //        configuration.configure("hibernate.cfg.xml");
 //        configuration.addAnnotatedClass(Song.class);
 
 //        Create SessionFactory
-        SessionFactory sessionFactory = HibernateUtils.getSessionFactory();
-
-        Session session = sessionFactory.openSession();
-
-        Song song = session.get(Song.class, 5);
-        song.setSongArtist("Dua Lipa");
-        song.setSongName("Be the one");
-
-        session.beginTransaction();
-        session.update(song);
-        session.getTransaction().commit();
-
-        System.out.println(song);
-
-        session.close();
-    }
+		SessionFactory sessionFactory = HibernateUtils.getSessionFactory();
+		if (sessionFactory != null) {
+			Session session = sessionFactory.openSession();
+			
+			Song song = session.get(Song.class, 2);
+			song.setSongArtist("Da Cow");
+			
+			session.beginTransaction();
+//			session.update(song);
+			session.getTransaction().commit();
+			
+			System.out.println(song);
+			
+			session.close();
+		}
+	}
 }

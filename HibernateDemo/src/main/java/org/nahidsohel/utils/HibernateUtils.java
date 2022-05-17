@@ -12,12 +12,25 @@ public class HibernateUtils {
 		
 		if(sessionFactory == null){
 			// Create Configuration
-			Configuration configuration = new Configuration();
-			configuration.configure("hibernate.cfg.xml");
-			configuration.addAnnotatedClass(Song.class);
+//			Configuration configuration = new Configuration();
+//			configuration.configure("hibernate.cfg.xml");
+//			configuration.addAnnotatedClass(Song.class);
+//
+//			// Create SessionFactory
+//			sessionFactory = configuration.buildSessionFactory();
 			
-			// Create SessionFactory goo
-			sessionFactory = configuration.buildSessionFactory();
+			try{
+				sessionFactory = new Configuration()
+						.configure()
+						.addAnnotatedClass(Song.class)
+						.buildSessionFactory();
+			
+			}catch (Exception e){
+				e.printStackTrace();
+				System.out.println("Session Factory Object is not created.");
+				
+			}
+			
 		}
 		
 		return sessionFactory;
