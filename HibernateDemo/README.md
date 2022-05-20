@@ -35,3 +35,6 @@ and their values are never stored in the database.
 **Hibernate Automatic Dirty Checking** <hr />
 >A dirty session in Hibernate is when  load an object inside the session and then modifies it. Or, open a session and
 > create a new object.
+
+
+**merge vs update**
