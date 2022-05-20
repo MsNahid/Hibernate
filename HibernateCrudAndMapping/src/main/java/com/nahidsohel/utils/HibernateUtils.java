@@ -1,7 +1,7 @@
-package org.example.utils;
+package com.nahidsohel.utils;
 
-import org.example.entities.Student;
-import org.example.entities.Teacher;
+import com.nahidsohel.entities.Student;
+import com.nahidsohel.entities.Teacher;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 

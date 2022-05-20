@@ -1,8 +1,7 @@
-package org.example.driver;
+package com.nahidsohel.driver;
 
-import org.example.entities.Student;
-import org.example.entities.Teacher;
-import org.example.utils.HibernateUtils;
+import com.nahidsohel.entities.Teacher;
+import com.nahidsohel.utils.HibernateUtils;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
@@ -28,29 +27,27 @@ public class CreateApp {
 //				student.setStuName("Moon");
 //				student.setStuDept("B.TECH");
 				
-//				Teacher teacher1 = new Teacher();
-//				Teacher teacher2 = new Teacher();
-				Teacher teacher3 = new Teacher();
+				Teacher teacher1 = new Teacher();
+				Teacher teacher2 = new Teacher();
+//				Teacher teacher3 = new Teacher();
 				
-//				teacher1.setTeacherName("Boob");
-//				teacher1.setTeacherRank("Lecturer");
-//
-//				teacher2.setTeacherName("Moon");
-//				teacher2.setTeacherRank("Professor");
+				teacher1.setTeacherName("Bolt");
+				teacher1.setTeacherRank("Professor");
+
+				teacher2.setTeacherName("Altab");
+				teacher2.setTeacherRank("Professor");
 				
-				teacher3.setTeacherName("Sohel");
-				teacher3.setTeacherRank("SportsTeacher");
+//				teacher3.setTeacherName("Alim");
+//				teacher3.setTeacherRank("Professor");
 				
 				session.beginTransaction();
-//				session.save(teacher1);
-//				session.save(teacher2);
-				session.save(teacher3);
+				session.save(teacher1);
+				session.save(teacher2);
+//				session.save(teacher3);
 				session.getTransaction().commit();
 				
 			}finally {
-				
 				session.close();
-				
 			}
 		}
 	}

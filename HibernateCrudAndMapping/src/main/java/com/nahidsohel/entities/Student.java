@@ -1,4 +1,4 @@
-package org.example.entities;
+package com.nahidsohel.entities;
 
 import lombok.*;
 
