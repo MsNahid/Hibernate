@@ -16,7 +16,6 @@ public class TestJdbc {
 		}catch(Exception e){
 			e.printStackTrace();
 			System.out.println("Database not connected.");
-			System.out.println("Hi there");
 		
 		}
 	}
