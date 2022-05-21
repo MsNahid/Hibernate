@@ -1,11 +1,8 @@
 package com.nahidsohel.driver;
 
-import com.nahidsohel.entities.Teacher;
 import com.nahidsohel.utils.HibernateUtils;
-import org.hibernate.Session;
+import jakarta.persistence.EntityManager;
 import org.hibernate.SessionFactory;
-
-import java.util.List;
 
 public class UpdateApp {
 	
@@ -17,14 +14,15 @@ public class UpdateApp {
 			return;
 		}else{
 			try{
-				Session session = sessionFactory.openSession();
+//				Session session = sessionFactory.openSession();
+				EntityManager entityManager = sessionFactory.createEntityManager();
 				
-				session.beginTransaction();
+				entityManager.getTransaction().begin();
 				System.out.println("Update object using hql");
-				session.createQuery("Update Teacher t set t.teacherName = 'Mun' where lower(t.teacherRank) like '%pro%'").executeUpdate();
-				session.getTransaction().commit();
+				entityManager.createQuery("Update Teacher t set t.teacherName = 'Mun' where lower(t.teacherRank) like '%pro%'").executeUpdate();
+				entityManager.getTransaction().commit();
 				
-				session.close();
+				entityManager.close();
 				
 			}catch (Exception e){
 				e.printStackTrace();

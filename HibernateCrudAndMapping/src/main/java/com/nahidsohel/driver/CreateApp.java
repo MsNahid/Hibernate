@@ -2,7 +2,7 @@ package com.nahidsohel.driver;
 
 import com.nahidsohel.entities.Teacher;
 import com.nahidsohel.utils.HibernateUtils;
-import org.hibernate.Session;
+import jakarta.persistence.EntityManager;
 import org.hibernate.SessionFactory;
 
 public class CreateApp {
@@ -19,7 +19,8 @@ public class CreateApp {
 		
 		if(sessionFactory != null){
 			
-			Session session = sessionFactory.openSession();
+//			Session session = sessionFactory.openSession();
+			EntityManager entityManager = sessionFactory.createEntityManager();
 			
 			try{
 				System.out.println("Created New Object.");
@@ -40,14 +41,14 @@ public class CreateApp {
 //				teacher3.setTeacherName("Alim");
 //				teacher3.setTeacherRank("Professor");
 				
-				session.beginTransaction();
-				session.save(teacher1);
-				session.save(teacher2);
-//				session.save(teacher3);
-				session.getTransaction().commit();
+				entityManager.getTransaction().begin();
+				entityManager.persist(teacher1);
+				entityManager.persist(teacher2);
+//				entityManager.save(teacher3);
+				entityManager.getTransaction().commit();
 				
 			}finally {
-				session.close();
+				entityManager.close();
 			}
 		}
 	}

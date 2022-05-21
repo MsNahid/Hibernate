@@ -2,7 +2,7 @@ package com.nahidsohel.driver;
 
 import com.nahidsohel.entities.Teacher;
 import com.nahidsohel.utils.HibernateUtils;
-import org.hibernate.Session;
+import jakarta.persistence.EntityManager;
 import org.hibernate.SessionFactory;
 
 import java.util.List;
@@ -18,21 +18,22 @@ public class ReadApp {
 			return;
 		}else{
 			try{
-				Session session = sessionFactory.openSession();
+				
+				EntityManager entityManager = sessionFactory.createEntityManager();
 				
 				System.out.println("Retrieve Teacher Objects");
-				session.beginTransaction();
+				entityManager.getTransaction().begin();
 				
-				List<Teacher> teacherList = session.createQuery("From Teacher t where lower(t.teacherRank) like '%pro%' ").list();
+				List<Teacher> teacherList = entityManager.createQuery("From Teacher t where lower(t.teacherRank) like '%pro%' ").getResultList();
 				
 				System.out.println(teacherList.size());
 				
-				for(Teacher teacher : teacherList){
+				for(Object teacher : teacherList){
 					System.out.println(teacher);
 				}
-				session.getTransaction().commit();
+				entityManager.getTransaction().commit();
 				
-				session.close();
+				entityManager.close();
 				
 			}catch (Exception e){
 				e.printStackTrace();
