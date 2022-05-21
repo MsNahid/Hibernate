@@ -22,4 +22,6 @@ public class Student {
 	private String stuName;
 	
 	private String StuDept;
+	
+	
 }

@@ -1,5 +1,7 @@
 package com.nahidsohel.utils;
 
+import com.nahidsohel.entities.Laptop;
+import com.nahidsohel.entities.Person;
 import com.nahidsohel.entities.Student;
 import com.nahidsohel.entities.Teacher;
 import org.hibernate.SessionFactory;
@@ -16,6 +18,8 @@ public class HibernateUtils {
 				sessionFactory = new Configuration().configure()
 						.addAnnotatedClass(Student.class)
 						.addAnnotatedClass(Teacher.class)
+						.addAnnotatedClass(Laptop.class)
+						.addAnnotatedClass(Person.class)
 						.buildSessionFactory();
 				
 			}catch (Exception e){

@@ -1,8 +1,10 @@
 package com.nahidsohel.driver;
 
+import com.nahidsohel.entities.Laptop;
 import com.nahidsohel.entities.Teacher;
 import com.nahidsohel.utils.HibernateUtils;
 import jakarta.persistence.EntityManager;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 public class CreateApp {
@@ -19,8 +21,8 @@ public class CreateApp {
 		
 		if(sessionFactory != null){
 			
-//			Session session = sessionFactory.openSession();
-			EntityManager entityManager = sessionFactory.createEntityManager();
+//			EntityManager entityManager = sessionFactory.createEntityManager();
+			Session session = sessionFactory.openSession();
 			
 			try{
 				System.out.println("Created New Object.");
@@ -28,27 +30,41 @@ public class CreateApp {
 //				student.setStuName("Moon");
 //				student.setStuDept("B.TECH");
 				
-				Teacher teacher1 = new Teacher();
-				Teacher teacher2 = new Teacher();
+//				Teacher teacher1 = new Teacher();
+//				Teacher teacher2 = new Teacher();
 //				Teacher teacher3 = new Teacher();
 				
-				teacher1.setTeacherName("Bolt");
-				teacher1.setTeacherRank("Professor");
-
-				teacher2.setTeacherName("Altab");
-				teacher2.setTeacherRank("Professor");
+//				teacher1.setTeacherName("Bolt");
+//				teacher1.setTeacherRank("Professor");
+//
+//				teacher2.setTeacherName("Altab");
+//				teacher2.setTeacherRank("Professor");
 				
 //				teacher3.setTeacherName("Alim");
 //				teacher3.setTeacherRank("Professor");
 				
-				entityManager.getTransaction().begin();
-				entityManager.persist(teacher1);
-				entityManager.persist(teacher2);
-//				entityManager.save(teacher3);
-				entityManager.getTransaction().commit();
+				Laptop laptop1 = new Laptop();
+				Laptop laptop2 = new Laptop();
+				Laptop laptop3 = new Laptop();
+				Laptop laptop4 = new Laptop();
+				Laptop laptop5 = new Laptop();
+				laptop1.setBrand("Dell");
+				laptop2.setBrand("Hp");
+				laptop3.setBrand("Lenovo");
+				laptop4.setBrand("Mac");
+				laptop5.setBrand("Mi");
+				
+				
+				session.getTransaction().begin();
+				session.persist(laptop1);
+				session.persist(laptop2);
+				session.persist(laptop3);
+				session.persist(laptop4);
+				session.persist(laptop5);
+				session.getTransaction().commit();
 				
 			}finally {
-				entityManager.close();
+				session.close();
 			}
 		}
 	}
