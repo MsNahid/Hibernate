@@ -23,7 +23,7 @@ public class DeleteApp {
 			System.out.println(song);
 			
 			session.beginTransaction();
-			session.delete(song);
+			session.remove(song);
 			session.getTransaction().commit();
 			
 			session.close();

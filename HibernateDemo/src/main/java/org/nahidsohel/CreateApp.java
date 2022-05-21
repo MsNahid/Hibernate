@@ -27,7 +27,7 @@ public class CreateApp {
 			song1.setSongArtist("akbor");
 			
 			session.beginTransaction();
-			session.save(song1);
+			session.persist(song1);
 			session.getTransaction().commit();
 			
 			System.out.println("hello");
