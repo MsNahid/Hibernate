@@ -26,9 +26,20 @@ and their values are never stored in the database.
 <br />
 
 **Object State And Life Cycle** <hr />
-> - Transient
-> - Persistent
-> - Detach
+> - _Transient State_
+>     - The **transient** state is the first state of an entity object. When we instantiate an object of a POJO class using the new operator then the
+>       object is in the transient state.
+> - Persistent State
+>     - Once the object is connected with the Hibernate Session then the object moves into the Persistent State.
+> - Detach State
+>     - For converting an object from Persistent State to Detached State, we either have to close the session or we have to clear its cache.
+> - Remove State
+>      - when the entity object is deleted from the database then the entity object is known to be in the removed state.
+>   
+> 
+>    <br />
+>
+>   ![Life Cycle](GFGHibernateLifecycle.png)
 
 <br />
 
