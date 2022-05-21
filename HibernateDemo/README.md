@@ -36,10 +36,7 @@ and their values are never stored in the database.
 > - Remove State
 >      - when the entity object is deleted from the database then the entity object is known to be in the removed state.
 >   
-> 
->    <br />
->
->   ![Life Cycle](GFGHibernateLifecycle.png)
+> - ![Life Cycle](GFGHibernateLifecycle.png)
 
 <br />
 
