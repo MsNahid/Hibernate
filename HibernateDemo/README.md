@@ -45,4 +45,3 @@ and their values are never stored in the database.
 > create a new object.
 
 
-**merge vs update**

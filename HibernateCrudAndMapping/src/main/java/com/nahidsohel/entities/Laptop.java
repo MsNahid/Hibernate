@@ -23,7 +23,7 @@ public class Laptop {
 	@OneToOne(mappedBy = "laptop")
 	private Person person;
 	
-	@OneToMany(mappedBy = "laptop",
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "laptop",
 			cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE, CascadeType.DETACH})
 	private List<Ram> ramList;
 	
