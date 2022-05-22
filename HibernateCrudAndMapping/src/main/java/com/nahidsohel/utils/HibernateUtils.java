@@ -1,9 +1,6 @@
 package com.nahidsohel.utils;
 
-import com.nahidsohel.entities.Laptop;
-import com.nahidsohel.entities.Person;
-import com.nahidsohel.entities.Student;
-import com.nahidsohel.entities.Teacher;
+import com.nahidsohel.entities.*;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
@@ -20,6 +17,7 @@ public class HibernateUtils {
 						.addAnnotatedClass(Teacher.class)
 						.addAnnotatedClass(Laptop.class)
 						.addAnnotatedClass(Person.class)
+						.addAnnotatedClass(Ram.class)
 						.buildSessionFactory();
 				
 			}catch (Exception e){

@@ -29,9 +29,12 @@ public class OneToOneMapping {
 
 				laptop1.setBrand("Fujitsu");
 				laptop1.setPerson(person1);
+				
 				laptop2.setBrand("Realme");
 				laptop2.setPerson(person2);
+				
 				laptop3.setBrand("Walton");
+				laptop3.setPerson(person3);
 //
 				person1.setName("Moon");
 				person1.setLaptop(laptop1);
@@ -48,33 +51,33 @@ public class OneToOneMapping {
 				session.persist(person3);
 				session.getTransaction().commit();
 				
+				session.close();
 				
-//
+				Session session1 = sessionFactory.openSession();
 				
+				session1.beginTransaction();
+				// retrieve person class object
 				int personPk = 11;
-				Person person = session.get(Person.class, personPk);
+				Person person = session1.get(Person.class, personPk);
 
 				if(person != null){
 					System.out.println(person);
 					System.out.println(person.getLaptop());
 				}
 				
-				
-				
-				session.beginTransaction();
 //
 				int laptopPk = 11;
-				Laptop laptop = session.get(Laptop.class, laptopPk);
+				Laptop laptop = session1.get(Laptop.class, laptopPk);
 
 				if(laptop != null){
-					System.out.println(laptop.getBrand());
+					System.out.println(laptop);
 					System.out.println(laptop.getPerson());
 
 				}
 //
-				session.getTransaction().commit();
+				session1.getTransaction().commit();
 				
-				session.close();
+				session1.close();
 				
 				
 			}catch (Exception e){

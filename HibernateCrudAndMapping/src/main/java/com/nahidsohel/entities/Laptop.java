@@ -3,6 +3,9 @@ package com.nahidsohel.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -20,6 +23,18 @@ public class Laptop {
 	@OneToOne(mappedBy = "laptop")
 	private Person person;
 	
+	@OneToMany(mappedBy = "laptop",
+			cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE, CascadeType.DETACH})
+	private List<Ram> ramList;
+	
+	public void addMappingProperty(Ram ram){
+		if(ramList == null){
+			ramList = new ArrayList<>();
+		}
+		ramList.add(ram);
+		
+		ram.setLaptop(this); // by directional
+	}
 	
 	@Override
 	public String toString() {
