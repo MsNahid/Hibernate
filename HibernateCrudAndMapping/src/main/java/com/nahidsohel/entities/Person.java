@@ -2,15 +2,11 @@ package com.nahidsohel.entities;
 
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 @Getter
 @Setter
 @NoArgsConstructor
-@ToString
 @Entity
 @Table(name = "Persons")
 public class Person {
@@ -25,4 +21,12 @@ public class Person {
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "laptop_id")
 	private Laptop laptop;
+	
+	@Override
+	public String toString() {
+		return "Person{" +
+				"id=" + id +
+				", name='" + name + '\'' +
+				'}';
+	}
 }

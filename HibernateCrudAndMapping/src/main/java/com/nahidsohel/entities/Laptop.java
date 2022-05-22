@@ -1,15 +1,11 @@
 package com.nahidsohel.entities;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 @Getter
 @Setter
 @NoArgsConstructor
-@ToString
 @Entity
 @Table(name = "Laptops")
 public class Laptop {
@@ -20,4 +16,16 @@ public class Laptop {
 	private int id;
 	
 	private String brand;
+	
+	@OneToOne(mappedBy = "laptop")
+	private Person person;
+	
+	
+	@Override
+	public String toString() {
+		return "Laptop{" +
+				"id=" + id +
+				", brand='" + brand + '\'' +
+				'}';
+	}
 }
